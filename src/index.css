@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-script: 'Caveat', cursive;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0c080d;
+    color: #f7eff3;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-luxury {
+    font-family: var(--font-serif);
+  }
+
+  .font-handwriting {
+    font-family: var(--font-script);
+  }
+}
+
+/* Custom Glassmorphism & Romantic Glow */
+.glass-panel {
+  background: rgba(26, 16, 24, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 114, 182, 0.15);
+}
+
+.glass-panel-light {
+  background: rgba(255, 240, 246, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 114, 182, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(225, 29, 72, 0.25);
+}
+
+.glow-romantic {
+  box-shadow: 0 0 40px -10px rgba(244, 63, 94, 0.35);
+}
+
+.glow-romantic-sm {
+  box-shadow: 0 0 20px -5px rgba(244, 63, 94, 0.25);
+}
+
+.text-gradient-rose {
+  background: linear-gradient(135deg, #fff1f2 0%, #fecdd3 40%, #fb7185 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fef08a 0%, #fbcfe8 60%, #fda4af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Elegant scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0c080d;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 114, 182, 0.45);
+}
+
+/* Subtle animations */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 4s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+/* ========================================================
+   DYNAMIC NEON EFFECTS & GLOW SYSTEM
+   ======================================================== */
+
+@keyframes neonGlowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #ff2a85,
+      0 0 20px #ff2a85,
+      0 0 40px #ff2a85,
+      0 0 70px #e11d48;
+    filter: drop-shadow(0 0 10px rgba(255, 42, 133, 0.7));
+  }
+  50% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 8px #ff2a85,
+      0 0 15px #ff2a85,
+      0 0 30px #e11d48,
+      0 0 50px #be123c;
+    filter: drop-shadow(0 0 6px rgba(255, 42, 133, 0.4));
+  }
+}
+
+@keyframes neonBoxPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 12px rgba(255, 42, 133, 0.45),
+      0 0 24px rgba(244, 63, 94, 0.35),
+      0 0 45px rgba(244, 63, 94, 0.2),
+      inset 0 0 12px rgba(255, 42, 133, 0.25);
+    border-color: rgba(255, 105, 180, 0.75);
+  }
+  50% {
+    box-shadow:
+      0 0 6px rgba(255, 42, 133, 0.3),
+      0 0 15px rgba(244, 63, 94, 0.2),
+      0 0 25px rgba(244, 63, 94, 0.1),
+      inset 0 0 6px rgba(255, 42, 133, 0.15);
+    border-color: rgba(255, 105, 180, 0.4);
+  }
+}
+
+@keyframes neonBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.neon-text-rose {
+  animation: neonGlowPulse 3s ease-in-out infinite;
+}
+
+.neon-text-subtle {
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #ff2a85,
+    0 0 20px rgba(244, 63, 94, 0.8),
+    0 0 35px rgba(225, 29, 72, 0.6);
+}
+
+.neon-box-rose {
+  animation: neonBoxPulse 3s ease-in-out infinite;
+}
+
+.neon-border-flow {
+  background: linear-gradient(
+    90deg,
+    #ff2a85,
+    #f43f5e,
+    #ec4899,
+    #a855f7,
+    #ec4899,
+    #f43f5e,
+    #ff2a85
+  );
+  background-size: 300% 300%;
+  animation: neonBorderFlow 6s ease infinite;
+}
+
+.neon-tag {
+  background: rgba(255, 42, 133, 0.12);
+  border: 1px solid rgba(255, 105, 180, 0.5);
+  box-shadow: 0 0 12px rgba(255, 42, 133, 0.3), inset 0 0 8px rgba(255, 42, 133, 0.2);
+}
+
